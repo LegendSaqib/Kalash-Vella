@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const images = [
   "/MainGallery/Gallery Scroll1-min.jpg",
@@ -14,16 +14,14 @@ const images = [
 export default function CenterCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [translateX, setTranslateX] = useState(0);
+  const touchStartX = useRef(0);
   const total = images.length;
 
   // Disable body scroll when modal is open
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    // Cleanup on unmount
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [isModalOpen]);
 
@@ -47,6 +45,31 @@ export default function CenterCarousel() {
     return visible;
   };
 
+  // 🟢 Mobile swipe handlers
+  const handleTouchStart = (e) => {
+    if (window.innerWidth < 1024) {
+      setIsDragging(true);
+      touchStartX.current = e.touches[0].clientX;
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging || window.innerWidth >= 1024) return;
+    const moveX = e.touches[0].clientX - touchStartX.current;
+    setTranslateX(moveX);
+  };
+
+  const handleTouchEnd = () => {
+    if (window.innerWidth < 1024) {
+      setIsDragging(false);
+
+      if (translateX < -50) nextSlide(); // swipe left
+      else if (translateX > 50) prevSlide(); // swipe right
+
+      setTranslateX(0); // reset drag
+    }
+  };
+
   return (
     <div className="flex flex-col items-center md:gap-2 pt-5">
       <p className="text-center text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-4xl p-2 md:p-5">
@@ -61,7 +84,14 @@ export default function CenterCarousel() {
             gap-3 md:gap-4 lg:gap-5 xl:gap-8
             md:overflow-x-auto lg:overflow-hidden
             md:scroll-smooth lg:scroll-auto
+            transition-transform duration-500 ease-in-out
           "
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            transform: `translateX(${translateX}px)`,
+          }}
         >
           {getVisibleImages().map(({ src, offset }, i) => {
             let scale = 0.6;
@@ -110,10 +140,12 @@ export default function CenterCarousel() {
             <img
               src={images[currentIndex]}
               alt="Enlarged"
-              className="w-full h-[400px] md:h-[450px] xl:h-[500px] 2xl:h-[900px] rounded-lg "/>
+              className="w-full h-[400px] md:h-[450px] xl:h-[500px] 2xl:h-[900px] rounded-lg "
+            />
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 xl:top-7 right-0 text-white text-2xl font-bold bg-[#67491C]/70 border rounded-full w-10 h-10 2xl:w-15 2xl:h-15 flex items-center justify-center hover:bg-opacity-99">
+              className="absolute top-2 xl:top-7 right-0 text-white text-2xl font-bold bg-[#67491C]/70 border rounded-full w-10 h-10 2xl:w-15 2xl:h-15 flex items-center justify-center hover:bg-opacity-99"
+            >
               &times;
             </button>
           </div>
