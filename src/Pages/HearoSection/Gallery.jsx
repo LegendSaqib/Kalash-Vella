@@ -6,8 +6,8 @@ export default function ImageSlider() {
     "/Gallery/Gallery3-min.jpg",
     "/Gallery/Gallery2-min.jpg",
     "/Gallery/Gallery1-min.jpg",
-    "/Gallery/Gallery3-min.jpg",
-    "/Gallery/Gallery2-min.jpg",
+    "/Gallery/Galler-4-min.jpg",
+    "/Gallery/Galler-5-min.jpg",
   ];
 
   const [index, setIndex] = useState(0);

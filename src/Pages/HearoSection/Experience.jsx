@@ -1,6 +1,6 @@
 const Experience = () => {
     return (
-        <div className="w-full flex flex-col gap-7 items-center justify-center p-2 md:p-10">
+        <div className="w-full flex flex-col gap-7 items-center justify-center p-2 md:p-5">
             <div className="w-full flex items-center justify-center">
              <div className="w-[250px] md:w-[300px] lg:w-[420px] 2xl:w-[550px]">
               <div className="relative flex justify-center items-center rounded-sm w-[50%] h-[35px] md:h-[40px] lg:h-[50px] xl:h-[60px] border-2 border-transparent border-t-[#B36228] border-l-[#B36228] border-b-[#B36228]">

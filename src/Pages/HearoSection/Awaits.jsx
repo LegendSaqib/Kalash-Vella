@@ -56,7 +56,17 @@ export default function Awaits() {
     );
   };
   return (
-    <div className="w-full flex flex-col items-center gap-5 p-2">
+    <div className="w-full flex flex-col items-center gap-5 p-2 mb-5 md:mb-10">
+      {/* heading */}
+            <div className="w-full flex items-center justify-center">
+             <div className="w-[288px] md:w-[370px] lg:w-[570px] 2xl:w-[720px]">
+              <div className="relative flex justify-center items-center rounded-sm w-[50%] h-[35px] md:h-[40px] lg:h-[50px] xl:h-[60px] border-2 border-transparent border-t-[#B36228] border-l-[#B36228] border-b-[#B36228]">
+               <h1 className="absolute left-1 md:left-3 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[280px] md:w-[350px] lg:w-[550px] 2xl:w-[700px]">
+                 What awaits beyond the Villa
+               </h1>
+              </div>
+             </div>
+            </div>
       {/* Slider */}
       <div
         className="relative w-full flex justify-center items-center"
@@ -69,7 +79,7 @@ export default function Awaits() {
           className="hidden md:block absolute z-20 top-1/2 -translate-y-1/2 left-2">
             <svg
             className="lg:w-[40px] lg:h-[40px] xl:w-[50px] xl:h-[50px] 2xl:w-[70px] 2xl:h-[70px]"
-            viewBox="0 0 60 60"
+            viewBox="0 0 60 60 "
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <rect
