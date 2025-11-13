@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 
 export default function GallerySection() {
   const allImages = [
-    "/Featured/Featured1-min.jpg", "/Featured/Featured2-min.jpg", "/Featured/Featured3-min.jpg",
-    "/Featured/Featured4-min.jpg", "/Featured/Featured5-min.jpg", "/Featured/Featured6-min.jpg",
-    "/Featured/Featured7-min.jpg", "/Featured/Featured8-min.jpg", "/Featured/Featured9-min.jpg",
-    "/Featured/Featured10-min.jpg", "/Featured/Featured11-min.jpg", "/Featured/Featured12-min.jpg",
-    "/Featured/Featured13-min.jpg", "/Featured/Rectangle 19385-min.jpg", "/Featured/Featured14-min.jpg",
-    "/Featured/Rectangle 19383-min.jpg", "/Featured/Rectangle 19384-min.jpg", "/Featured/Featured1-min.jpg",
-    "/Featured/Featured2-min.jpg", "/Featured/Featured3-min.jpg", "/Featured/Featured5-min.jpg",
+    "/Featured/Featured1-min.jpg", "/Featured/Featured1gallery-min.jpg", "/Featured/Featured2-min.jpg",
+    "/Featured/Featured3-min.jpg", "/Featured/Featured4gallery-min.jpg", "/Featured/Featured6gallery-min.jpg",
+    "/Featured/Featured7-min.jpg", "/Featured/Featured7gallery-min.jpg", "/Featured/Featured8-min.jpg",
+    "/Featured/Featured8gallery-min.jpg", "/Featured/Featured9gallery-min.jpg", "/Featured/Featured10gallery-min.jpg",
+    "/Featured/Featured11gallery-min.jpg", "/Featured/Featured12gallery-min.jpg", "/Featured/Featured13gallery-min.jpg",
+    "/Featured/Featured14gallery-min.jpg", "/Featured/Featured15gallery-min.jpg", "/Featured/Featured15-min.jpg",
+    "/Featured/Featured16gallery-min.jpg", "/Featured/Featured17gallery-min.jpg", "/Featured/Featured19gallery-min.jpg",
+    "/Featured/Featured20gallery-min.jpg", "/Featured/Featured21gallery-min.jpg", "/Featured/Featured22gallery-min.jpg",
   ];
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -41,7 +42,7 @@ export default function GallerySection() {
       <div className="w-full flex items-center justify-center">
         <div className="w-[240px] md:w-[290px] lg:w-[430px] 2xl:w-[570px]">
           <div className="relative flex justify-center items-center w-[50%] rounded-sm h-[35px] md:h-[45px] xl:h-[60px] border-2 border-transparent border-t-[#B36228] border-l-[#B36228] border-b-[#B36228]">
-            <h1 className="cursor-pointer absolute inset-0 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[240px] md:w-[290px] lg:w-[430px] 2xl:w-[570px]">
+            <h1 className="cursor-pointer absolute left-2 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[240px] md:w-[290px] lg:w-[430px] 2xl:w-[570px]">
               Featured Gallery Section
             </h1>
           </div>

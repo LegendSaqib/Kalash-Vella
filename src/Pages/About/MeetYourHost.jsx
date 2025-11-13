@@ -6,7 +6,7 @@ const MeetYourHost = () => {
             <div className="w-[160px] md:w-[240px] lg:w-[280px] 2xl:w-[370px]">
              <div className="border-2 border-transparent border-l-[#B36228] rounded-lg ">
                <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] rounded-bl-sm rounded-tl-sm h-[35px] md:h-[45px] w-[50%] lg:h-[55px] 2xl:h-[80px] flex items-center">
-                <h1 className="absolute inset-0 text-xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold w-[155px] md:w-[230px] lg:w-[275px] 2xl:w-[365px] ">Meet Your Host</h1>
+                <h1 className="absolute left-2 text-xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold w-[155px] md:w-[230px] lg:w-[275px] 2xl:w-[365px] ">Meet Your Host</h1>
                </div>
               </div>
             </div>

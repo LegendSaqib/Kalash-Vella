@@ -124,7 +124,7 @@ const ContectUsMain = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="🇵🇰 0000-0000-000"
+                    placeholder="PK 0000-0000-000"
                     className="w-full border border-gray-300 rounded-full pl-5 pr-3 py-2 focus:outline-none md:text-[10px] lg:text-xs xl:text-sm 2xl:text-lg"/>
                 </div>
                 {errors.phone && (

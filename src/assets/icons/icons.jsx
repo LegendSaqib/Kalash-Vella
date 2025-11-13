@@ -199,5 +199,18 @@ const Required = ({ className = "", bg ="#D49736"}) => {
         </div>
       )
     };
+const PKflag = ({ className = "", bg ="#D49736"}) => {
+      return (
+        <div className={className}>
+          <svg className={className} viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.8125 0C0.948656 0 0 1.38516 0 3.09375V9.28125C0 10.9898 0.948656 12.375 2.8125 12.375H5.625V0H2.8125Z" fill="#E6E7E8"/>
+          <path d="M15.1875 0H5.625V12.375H15.1875C17.0513 12.375 18 10.9898 18 9.28125V3.09375C18 1.38516 17.0513 0 15.1875 0Z" fill="#006838"/>
+          <path d="M12.5167 3.24223L13.1535 3.83314L14.0001 3.64442L13.635 4.43361L14.0766 5.18173L13.2123 5.07655L12.6374 5.72876L12.4706 4.87658L11.6719 4.53036L12.4313 4.1068L12.5167 3.24223Z" fill="#E6E7E8"/>
+          <path d="M14.7283 7.12406C13.5186 8.33399 11.558 8.33399 10.3481 7.12406C9.13814 5.91412 9.13814 3.95352 10.3481 2.74387C10.4316 2.66062 10.5188 2.5844 10.6088 2.51268C9.98844 2.66996 9.42205 2.99178 8.96939 3.44418C7.5727 4.84115 7.5727 7.10606 8.96939 8.50302C10.3669 9.89971 12.6313 9.89971 14.0282 8.50302C14.4806 8.05036 14.8025 7.48397 14.9597 6.86362C14.8871 6.95436 14.8099 7.04129 14.7283 7.12406Z" fill="#E6E7E8"/>
+          </svg>
 
-    export {Whatsapp, FaceBook, Instagram, ColorLocation, Location, Call, Message, RightArow, Booking, RightDubleArow, LeftDubleArow, Stay, OrangeLocation, Car, Culture, Required}
+        </div>
+      )
+    };
+
+    export {Whatsapp, FaceBook, Instagram, ColorLocation, Location, Call, Message, RightArow, Booking, RightDubleArow, LeftDubleArow, Stay, OrangeLocation, Car, Culture, Required, PKflag}

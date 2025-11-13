@@ -7,7 +7,7 @@ const HouseD = () => {
           <div className="w-full flex items-center justify-center">
             <div className="w-[140px] md:w-[215px] lg:w-[252px] 2xl:w-[335px] border-2 border-transparent border-l-[#B36228] rounded-lg ">
                <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] rounded-bl-sm rounded-tl-sm h-[35px] w-[50%] md:h-[45px] lg:h-[50px] 2xl:h-[60px]">
-                 <h1 className="absolute inset-0 text-xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold w-[135px] md:w-[210px] lg:w-[250px] 2xl:w-[330px] ">House Details</h1>
+                 <h1 className="absolute left-2 text-xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold w-[135px] md:w-[210px] lg:w-[250px] 2xl:w-[330px] ">House Details</h1>
                </div>
             </div>
           </div>

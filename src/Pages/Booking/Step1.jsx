@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Required } from "../../assets/icons/icons";
-
+import { Link } from "react-router-dom";
 export default function Step1() {
   const [step, setStep] = useState(1); // Added step state
   const [formData, setFormData] = useState({
@@ -277,9 +277,10 @@ export default function Step1() {
         {/* --- Next Button --- */}
         <div className="flex md:mt-5">
           <button
-            onClick={handleNext}
             className="bg-[#4D2A11] hover:bg-[#B36228] text-white md:text-xs lg:text-sm xl:text-lg 2xl:text-xl px-8 xl:px-12 xl:py-2 py-1 rounded-full">
-            Next
+            <Link to="/Step2" onClick={() => setOpen(true)}>
+                Next
+              </Link>
           </button>
         </div>
       </form>

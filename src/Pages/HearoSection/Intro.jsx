@@ -4,7 +4,7 @@ const Intro = () => {
         <div className="w-full flex items-center justify-center">
          <div className="w-[120px] md:w-[160px] lg:w-[220px] 2xl:w-[280px]">
           <div className="relative flex justify-center items-center w-[50%] rounded-sm h-[30px] md:h-[45px] xl:h-[50px] 2xl:h-[60px] border-2 border-transparent border-t-[#B36228] border-l-[#B36228] border-b-[#B36228]">
-           <h1 className="absolute inset-0 left-1 md:left-3 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[180px] md:w-[350px] lg:w-[550px] 2xl:w-[700px]">
+           <h1 className="absolute left-2 md:left-3 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[180px] md:w-[350px] lg:w-[550px] 2xl:w-[700px]">
             Quick Intro
            </h1>
           </div>

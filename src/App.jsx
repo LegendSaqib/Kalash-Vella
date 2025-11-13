@@ -10,6 +10,7 @@ import ContectUsMain from './Pages/ContectUs/ContectUsMain'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navebar from './Component/Navebar'
 import Footer from './Component/Footer'
+import Step2 from './Pages/Booking/Step2'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -20,11 +21,12 @@ function App() {
         <Routes>
          <Route path='/' element={<HeroSection/>}/> 
          <Route path='/About' element={<AboutUs/>} />
-         <Route path='/Gallery' element={<MainGallery/>} /> 
+         <Route path='/Gallery' element={<MainGallery/>}/> 
          <Route path='/MeetYourGuide' element={<MYG/>} />
          <Route path='/RandPricing' element={ <RandP/>} />
          <Route path='/Booking' element={<BookingMain/>} />
-         <Route path='/ContectUs' element={<ContectUsMain/>} />
+         <Route path='/ContectUs' element={<ContectUsMain/>}/>
+         <Route path='/Step2' element={<Step2/>}/>
         </Routes>
       <Footer/>
     </Router>

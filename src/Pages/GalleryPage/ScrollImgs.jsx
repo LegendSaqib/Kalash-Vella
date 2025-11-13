@@ -9,6 +9,8 @@ const images = [
   "/MainGallery/Gallery Scroll7-min.jpg",
   "/MainGallery/Gallery Scroll8-min.jpg",
   "/MainGallery/Depth 7, Frame 3-min.jpg",
+  "/MainGallery/Gallery Scroll9.jpg",
+  "/MainGallery/Gallery Scroll10-min.jpg",
 ];
 
 export default function CenterCarousel() {

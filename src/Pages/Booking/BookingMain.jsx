@@ -1,5 +1,4 @@
 import Step1 from "./Step1"
-import Step2 from "./Step2"
 const BookingMain = () => {
     return (
         <>
@@ -13,7 +12,6 @@ const BookingMain = () => {
            </div>
         </div>
         <Step1/>
-        <Step2/>
         </>
     )
 }

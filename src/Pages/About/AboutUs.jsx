@@ -14,7 +14,7 @@ const AboutUs = () => {
         </div>
         <div className="flex flex-col items-center px-4 md:px-10">
            <div>
-            <p className=" text-xs md:text-sm lg:text-lg 2xl:text-4xl py-5 text-justify">Kalash Villa is more than a stay — it’s a reflection of the Kalash way of life, where tradition and hospitality meetin the quiet beauty of Bumburet Valley. Our family has lived here for generations, carrying forward stories,customs, and a deep love for these mountains. We built Kalash Villa to share that world with others —a place wheretravelers can rest, learn, and connect with the culture that makes this valley so unique.
+            <p className=" text-xs md:text-sm lg:text-lg 2xl:text-4xl py-5 text-center">Kalash Villa is more than a stay — it’s a reflection of the Kalash way of life, where tradition and hospitality meetin the quiet beauty of Bumburet Valley. Our family has lived here for generations, carrying forward stories,customs, and a deep love for these mountains. We built Kalash Villa to share that world with others —a place wheretravelers can rest, learn, and connect with the culture that makes this valley so unique.
                Every detail, from the handcrafted woodwork to the meals prepared with local ingredients, is part of who we are. Guests don’t just visit; they experience the rhythm of Kalash life — its colors, its kindness, and its calm.Staying here means feeling at home in the valley we call our own. Simple comfort, genuine warmth, and the quiet charm of mountain living — that’s what Kalash Villa is all about.</p>
            </div>
            <MeetYourHost/>

@@ -57,7 +57,7 @@ export default function ImageSlider() {
       <div className="w-full flex items-center justify-center">
         <div className="w-[90px] md:w-[100px] lg:w-[150px] 2xl:w-[200px]">
           <div className="relative flex justify-center items-center w-[50%] rounded-sm h-[30px] md:h-[40px] lg:h-[50px] 2xl:h-[60px] border-2 border-transparent border-t-[#B36228] border-l-[#B36228] border-b-[#B36228]">
-            <h1 className="cursor-pointer absolute inset-0 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[160px] md:w-[350px] lg:w-[550px] 2xl:w-[700px]">
+            <h1 className="cursor-pointer absolute left-2 text-[#4D2A11] text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold w-[160px] md:w-[350px] lg:w-[550px] 2xl:w-[700px]">
               <Link to="Gallery">Gallery</Link>
             </h1>
           </div>

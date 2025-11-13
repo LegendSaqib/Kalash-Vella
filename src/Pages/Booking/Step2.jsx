@@ -1,25 +1,36 @@
 import React from "react";
 import { Required } from "../../assets/icons/icons";
-
 export default function Step2() {
   return (
+    <>
+            <div className="relative bg-[url('/BookingBg.jpg')] bg-cover h-[300px] md:h-[400px] lg:h-[600px] xl:h-[700px] 2xl:h-[1000px] bg-center bg-no-repeat w-full">
+          <div className="bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900/0 h-[300px] md:h-[400px] lg:h-[600px] xl:h-[700px] w-full">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex flex-col gap-2 justify-center items-center">
+                <div className=" bg-[#724A2F]/30 rounded-lg w-[200px] md:w-[300px] lg:w-[500px] xl:w-[900px] 2xl:w-[1000px] p-2 lg:p-4 xl:p-6">
+                  <h1 className="text-white text-center font-bold text-xl md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-7xl ">Booking</h1>
+                </div>
+              </div>         
+           </div>
+        </div>
     <div className="min-h-screen flex flex-col gap-5 items-center p-5 xl:px-10 2xl:px-20 bg-white">
-      <div className="border-b border-b-gray-600 border-2 border-transparent w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center">
         <h2 className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold mb-4">
           Step 2
         </h2>
       </div>
-
+        <div className="w-full h-[4px] rounded-full bg-amber-700">
+          <div className="w-[50%] bg-gray-500 rounded-full h-[4px] "></div>
+        </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:px-5 ">
         {/* Left Section */}
       <div className="flex flex-col gap-2 md:pr-6">
-        <div className="w-full flex items-center justify-center">
-          <div className="border-2 border-transparent border-l-[#B36228] rounded-lg ">
-            <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] rounded-bl-sm rounded-tl-sm h-[35px] w-[100px] md:h-[40px] md:w-[100px] lg:h-[45px] lg:w-[120px] 2xl:h-[53px] 2xl:w-[150px] flex items-center">
-              <h1 className="absolute left-2 text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold  w-[200px] md:w-[200px] lg:w-[250px] 2xl:w-[300px]">Review your Trip</h1>
+          <div className="w-full flex items-center justify-center">
+            <div className="w-[180px] md:w-[220px] lg:w-[270px] 2xl:w-[320px]">
+             <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] border-l-[#B36228] rounded-sm h-[35px] w-[50%] md:h-[40px] lg:h-[45px] 2xl:h-[53px] flex items-center">
+              <h1 className="absolute left-2 text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold w-[165px] md:w-[200px] lg:w-[250px] 2xl:w-[300px]">Review your Trip</h1>
+             </div>
             </div>
           </div>
-        </div>
           <div className="space-y-2 text-gray-800">
             <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Full Name: </strong> Jalil ahmed</p>
            <div className="flex gap-5">
@@ -46,9 +57,9 @@ export default function Step2() {
         {/* Right Section */}
         <div className="md:pl-6 flex flex-col gap-2">
           <div className="w-full flex items-center justify-center">
-            <div className="border-2 border-transparent border-l-[#B36228] rounded-lg ">
-             <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] rounded-bl-sm rounded-tl-sm h-[35px] w-[100px] md:h-[40px] md:w-[140px] lg:h-[45px] lg:w-[155px] 2xl:h-[53px] 2xl:w-[200px] flex items-center">
-              <h1 className="absolute left- text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold w-[200px] md:w-[270px] lg:w-[350px] 2xl:w-[400px]">Bank Transfer Details</h1>
+            <div className=" w-[210px] md:w-[280px] lg:w-[360px] 2xl:w-[410px]">
+             <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] border-l-[#B36228] rounded-sm h-[35px] w-[50%] md:h-[40px] lg:h-[45px] 2xl:h-[53px] flex items-center">
+              <h1 className="absolute left-2 text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold w-[200px] md:w-[270px] lg:w-[350px] 2xl:w-[400px]">Bank Transfer Details</h1>
              </div>
             </div>
           </div>
@@ -89,5 +100,6 @@ export default function Step2() {
         </div>
       </div>
     </div>
+  </>
   );
 }
