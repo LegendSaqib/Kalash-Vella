@@ -90,10 +90,10 @@ export default function Step2() {
             {/* Buttons */}
             <div className="flex items-center justify-around gap-3 mt-5 w-full">
               <button className="w-full bg-[#67491C] text-white px-5 py-2 rounded-full hover:bg-[#4D2A11] transition">
-                Submit
+                Back
               </button>
               <button className="w-full bg-[#67491C] text-white px-5 py-2 rounded-full hover:bg-[#4D2A11] transition">
-                Back
+                Submit
               </button>
             </div>
           </div>

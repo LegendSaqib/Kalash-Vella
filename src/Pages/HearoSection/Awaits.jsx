@@ -43,7 +43,7 @@ export default function Awaits() {
   const renderDots = () => {
     if (window.innerWidth >= 768) return null;
     return (
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2">
         {images.map((_, i) => (
           <span
             key={i}
