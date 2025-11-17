@@ -17,14 +17,12 @@ export default function CenterCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [translateX, setTranslateX] = useState(0);
+  const [dragTranslate, setDragTranslate] = useState(0);
 
   const touchStartX = useRef(0);
-  const startIndex = useRef(0); // ⭐ NEW: Swipe starting index
-
+  const startIndex = useRef(0);
   const total = images.length;
 
-  // Disable body scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
@@ -50,29 +48,29 @@ export default function CenterCarousel() {
     return visible;
   };
 
-  // 🟢 ⭐ FIXED: Smooth finger-follow drag
+  // 🟢 Smooth Finger-Follow
   const handleTouchStart = (e) => {
     if (window.innerWidth < 1024) {
       setIsDragging(true);
       touchStartX.current = e.touches[0].clientX;
-      startIndex.current = currentIndex; // ⭐ keeps stable start slide
+      startIndex.current = currentIndex;
     }
   };
 
   const handleTouchMove = (e) => {
     if (!isDragging || window.innerWidth >= 1024) return;
     const moveX = e.touches[0].clientX - touchStartX.current;
-    setTranslateX(moveX); // ⭐ REAL follow finger
+    setDragTranslate(moveX); // ⭐ Direct follow finger, no delay
   };
 
   const handleTouchEnd = () => {
     if (window.innerWidth < 1024) {
       setIsDragging(false);
 
-      if (translateX < -70) nextSlide();       // Left swipe → next
-      else if (translateX > 70) prevSlide();   // Right swipe → previous
+      if (dragTranslate < -50) nextSlide();
+      else if (dragTranslate > 50) prevSlide();
 
-      setTranslateX(0); // ⭐ Snap back to center when gesture ends
+      setDragTranslate(0);
     }
   };
 
@@ -89,15 +87,10 @@ export default function CenterCarousel() {
             h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] 2xl:h-[600px]
             gap-3 md:gap-4 lg:gap-5 xl:gap-8
             md:overflow-x-auto lg:overflow-hidden
-            md:scroll-smooth lg:scroll-auto
-            transition-transform duration-500 ease-in-out
           "
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          style={{
-            transform: `translateX(${translateX}px)`, // ⭐ follows finger
-          }}
         >
           {getVisibleImages().map(({ src, offset }, i) => {
             let scale = 0.6;
@@ -108,10 +101,11 @@ export default function CenterCarousel() {
             return (
               <div
                 key={i}
-                className="relative h-[90%] w-[50%] md:h-[80%] md:w-[20%] rounded-sm overflow-hidden flex-shrink-0 transition-transform duration-500 cursor-pointer"
+                className={`relative h-[90%] w-[50%] md:h-[80%] md:w-[20%] rounded-sm overflow-hidden flex-shrink-0 cursor-pointer`}
                 style={{
-                  transform: `scale(${scale})`,
+                  transform: `translateX(${dragTranslate}px) scale(${scale})`,
                   zIndex: offset === 0 ? 10 : 2,
+                  transition: isDragging ? "none" : "transform 0.3s ease", // ⭐ No delay during drag
                 }}
                 onClick={() => handleImageClick(offset)}
               >

@@ -106,11 +106,11 @@ export default function GallerySection() {
         </div>
       )}
 
-      {/* Center Carousel (when image clicked) */}
+{/* Center Carousel (when image clicked) */}
 {selectedImageIndex !== null && (
   <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
     <div
-      className="relative w-full h-[400px] md:h-[500px] xl:h-[520px] 2xl:h-[900px] flex items-center justify-center transition-transform duration-500"
+      className="relative w-full h-[400px] md:h-[500px] xl:h-[520px] 2xl:h-[900px] flex items-center justify-center"
       
       onTouchStart={(e) => {
         setIsDragging(true);
@@ -126,8 +126,8 @@ export default function GallerySection() {
       onTouchEnd={() => {
         setIsDragging(false);
 
-        if (translateX < -70) nextSlide();     // ⭐ BETTER SWIPE DETECTION
-        else if (translateX > 70) prevSlide();
+        if (translateX < -50) nextSlide();     // ⭐ BETTER SWIPE DETECTION
+        else if (translateX > 50) prevSlide();
 
         setTranslateX(0);  // ⭐ SMOOTH SNAP BACK
       }}
@@ -148,7 +148,11 @@ export default function GallerySection() {
               }`}
             style={{
               transform:
-                isCenter ? "translateX(0)" : offset === -1 ? "translateX(-20%)" : "translateX(20%)",
+                isCenter
+                  ? `translateX(${translateX}px)` // ⭐ Center image follows finger
+                  : offset === -1
+                  ? `translateX(calc(-20% + ${translateX / 2}px))`
+                  : `translateX(calc(20% + ${translateX / 2}px))`, // ⭐ Side images move slightly with finger
             }}
           >
             <img
@@ -179,6 +183,7 @@ export default function GallerySection() {
     </button>
   </div>
 )}
+
     </div>
   );
 }
