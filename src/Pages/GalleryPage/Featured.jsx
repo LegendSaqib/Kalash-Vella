@@ -106,84 +106,89 @@ export default function GallerySection() {
         </div>
       )}
 
-{/* Center Carousel (when image clicked) */}
-{selectedImageIndex !== null && (
-  <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-    <div
-      className="relative w-full h-[400px] md:h-[500px] xl:h-[520px] 2xl:h-[900px] flex items-center justify-center"
-      
-      onTouchStart={(e) => {
-        setIsDragging(true);
-        touchStartX.current = e.touches[0].clientX;
-      }}
-
-      onTouchMove={(e) => {
-        if (!isDragging) return;
-        const moveX = e.touches[0].clientX - touchStartX.current;
-        setTranslateX(moveX);   // ⭐ FOLLOW THE FINGER
-      }}
-
-      onTouchEnd={() => {
-        setIsDragging(false);
-
-        if (translateX < -50) nextSlide();     // ⭐ BETTER SWIPE DETECTION
-        else if (translateX > 50) prevSlide();
-
-        setTranslateX(0);  // ⭐ SMOOTH SNAP BACK
-      }}
-
-      style={{ transform: `translateX(${translateX}px)` }}
-    >
-      {[-1, 0, 1].map((offset) => {
-        const index = (selectedImageIndex + offset + allImages.length) % allImages.length;
-        const isCenter = offset === 0;
-
-        return (
+      {/* Center Carousel (when image clicked) */}
+      {selectedImageIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+          style={{ overflow: "hidden" }}
+        >
           <div
-            key={index}
-            className={`relative transition-all duration-500 rounded-lg overflow-hidden
-              ${isCenter
-                ? "z-30 h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] 2xl:h-[800px] w-full scale-100"
-                : "z-20 h-[300px] md:h-[350px] lg:h-[420px] xl:h-[470px] 2xl:h-[750px] w-[70px] md:w-[300px] lg:w-[480px] xl:w-[1100px] 2xl:w-[2200px] scale-90 blur-[4px]"
-              }`}
-            style={{
-              transform:
-                isCenter
-                  ? `translateX(${translateX}px)` // ⭐ Center image follows finger
-                  : offset === -1
-                  ? `translateX(calc(-20% + ${translateX / 2}px))`
-                  : `translateX(calc(20% + ${translateX / 2}px))`, // ⭐ Side images move slightly with finger
+            className="relative w-full h-[400px] md:h-[500px] xl:h-[520px] 2xl:h-[900px] flex items-center justify-center"
+            onTouchStart={(e) => {
+              setIsDragging(true);
+              touchStartX.current = e.touches[0].clientX;
             }}
+            onTouchMove={(e) => {
+              e.stopPropagation();
+              if (!isDragging) return;
+              const moveX = e.touches[0].clientX - touchStartX.current;
+              setTranslateX(moveX);
+            }}
+            onTouchEnd={(e) => {
+              e.stopPropagation();
+              setIsDragging(false);
+              if (translateX < -50) nextSlide();
+              else if (translateX > 50) prevSlide();
+              setTranslateX(0);
+            }}
+            onWheel={(e) => e.stopPropagation()}
+            style={{ transform: `translateX(${translateX}px)` }}
           >
-            <img
-              src={allImages[index]}
-              alt={`img-${index}`}
-              className="w-full h-full object-cover rounded-md"
-            />
+            {[-1, 0, 1].map((offset) => {
+              const index = (selectedImageIndex + offset + allImages.length) % allImages.length;
+              const isCenter = offset === 0;
+              return (
+                <div
+                  key={index}
+                  className={`relative transition-all duration-500 rounded-lg overflow-hidden
+                    ${isCenter
+                      ? "z-30 h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] 2xl:h-[800px] w-full scale-100"
+                      : "z-20 h-[300px] md:h-[350px] lg:h-[420px] xl:h-[470px] 2xl:h-[750px] w-[70px] md:w-[300px] lg:w-[480px] xl:w-[1100px] 2xl:w-[2200px] scale-90 blur-[4px]"
+                    }`}
+                  style={{
+                    transform:
+                      isCenter
+                        ? `translateX(${translateX}px)`
+                        : offset === -1
+                        ? `translateX(calc(-20% + ${translateX / 2}px))`
+                        : `translateX(calc(20% + ${translateX / 2}px))`,
+                  }}
+                >
+                  <img
+                    src={allImages[index]}
+                    alt={`img-${index}`}
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                </div>
+              );
+            })}
           </div>
-        );
-      })}
-    </div>
 
-    {/* Large screen arrows */}
-    <div className="hidden lg:flex justify-between items-center w-full absolute top-1/2 transform -translate-y-1/2 px-10 z-90">
-      <button onClick={prevSlide} className="text-white bg-[#67491C]/70 flex rounded-full px-3 py-1 hover:bg-[#67491C]/80 transition">
-        <LeftDubleArow className="lg:h-8 lg:w-5 xl:h-11 xl:w-8 2xl:h-18 2xl:w-14"/>
-      </button>
-      <button onClick={nextSlide} className="text-white text-center justify-text text-3xl bg-[#67491C]/70 rounded-full px-3 py-1 hover:bg-[#67491C]/80 transition">
-        <RightDubleArow className="lg:h-8 lg:w-5 xl:h-11 xl:w-8 2xl:h-18 2xl:w-14"/>
-      </button>
-    </div>
+          {/* Large screen arrows */}
+          <div className="hidden lg:flex justify-between items-center w-full absolute top-1/2 transform -translate-y-1/2 px-10 z-50 pointer-events-auto">
+            <button
+              onClick={prevSlide}
+              className="text-white bg-[#67491C]/70 flex rounded-full px-3 py-1 hover:bg-[#67491C]/80 transition"
+            >
+              <LeftDubleArow className="lg:h-8 lg:w-5 xl:h-11 xl:w-8 2xl:h-18 2xl:w-14" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="text-white text-center justify-text text-3xl bg-[#67491C]/70 rounded-full px-3 py-1 hover:bg-[#67491C]/80 transition"
+            >
+              <RightDubleArow className="lg:h-8 lg:w-5 xl:h-11 xl:w-8 2xl:h-18 2xl:w-14" />
+            </button>
+          </div>
 
-    {/* Close Button */}
-    <button
-      onClick={() => setSelectedImageIndex(null)}
-      className="absolute top-1 md:top-3 2xl:top-6 right-[10px] md:right-5 lg:right-8 2xl:right-15 text-white text-2xl font-bold bg-[#67491C] rounded-full w-5 md:w-8 h-5 md:h-8 2xl:h-15 2xl:w-15 flex items-center justify-center hover:bg-[#4D2A11]/80 p-5 z-50">
-      ✕
-    </button>
-  </div>
-)}
-
+          {/* Close Button */}
+          <button
+            onClick={() => setSelectedImageIndex(null)}
+            className="absolute top-1 md:top-3 2xl:top-6 right-[10px] md:right-5 lg:right-8 2xl:right-15 text-white text-2xl font-bold bg-[#67491C] rounded-full w-5 md:w-8 h-5 md:h-8 2xl:h-15 2xl:w-15 flex items-center justify-center hover:bg-[#4D2A11]/80 p-5 z-50"
+          >
+            ✕
+          </button>
+        </div>
+      )}
     </div>
   );
 }

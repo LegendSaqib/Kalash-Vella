@@ -17,11 +17,25 @@ export default function CenterCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragX, setDragX] = useState(0);
+
+  // ⭐ NEW: smooth slide offset
+  const [slideX, setSlideX] = useState(0);
+
   const touchStartX = useRef(0);
   const total = images.length;
 
-  const prevSlide = () => setCurrentIndex((currentIndex - 1 + total) % total);
-  const nextSlide = () => setCurrentIndex((currentIndex + 1) % total);
+  // ⭐ UPDATED (smooth slide)
+  const prevSlide = () => {
+    setSlideX(80);
+    setTimeout(() => setCurrentIndex((currentIndex - 1 + total) % total), 100);
+    setTimeout(() => setSlideX(0), 120);
+  };
+
+  const nextSlide = () => {
+    setSlideX(-80);
+    setTimeout(() => setCurrentIndex((currentIndex + 1) % total), 100);
+    setTimeout(() => setSlideX(0), 120);
+  };
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -31,7 +45,7 @@ export default function CenterCarousel() {
   const handleTouchMove = (e) => {
     if (!isDragging) return;
     const moveX = e.touches[0].clientX - touchStartX.current;
-    setDragX(moveX * 0.7); // smooth follow
+    setDragX(moveX * 0.7);
   };
 
   const handleTouchEnd = () => {
@@ -41,7 +55,6 @@ export default function CenterCarousel() {
     setDragX(0);
   };
 
-  // calculate visible images around center (-2 to +2)
   const getVisibleImages = () => {
     let visible = [];
     for (let offset = -2; offset <= 2; offset++) {
@@ -78,9 +91,10 @@ export default function CenterCarousel() {
                 key={i}
                 className="relative h-[90%] w-[50%] md:h-[80%] md:w-[20%] rounded-sm overflow-hidden flex-shrink-0 cursor-pointer"
                 style={{
-                  transform: `translateX(${dragX}px) scale(${scale})`,
+                  // ⭐ UPDATED: smooth slide + drag
+                  transform: `translateX(${slideX + dragX * 0.9}px) scale(${scale})`,
                   zIndex: offset === 0 ? 10 : 2,
-                  transition: isDragging ? "none" : "transform 0.28s ease",
+                  transition: isDragging ? "none" : "transform 0.30s ease",
                 }}
               >
                 <img src={src} alt={`img-${i}`} className="w-full h-full object-cover" />
