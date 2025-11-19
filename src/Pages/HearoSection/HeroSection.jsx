@@ -13,7 +13,7 @@ const HeroSection = () => {
                   <h1 className="text-white text-center font-bold text-lg md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-7xl ">Welcome to Kalash Villa</h1>
                 </div>
                 <p className="text-white text-[10px] md:text-sm lg:text-lg 2xl:text-4xl md:py-5 text-justify">Rooted in culture, surrounded by nature</p>
-               <button className="flex items-center gap-2 px-2 py-1 lg:px-3 lg:py-2 2xl:px-4 2xl:py-3 font-semibold text-[10px] lg:text-xs 2xl:text-xl bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] text-white rounded-sm border border-white">
+               <button className="flex items-center gap-2 px-2 py-1 lg:px-3 lg:py-2 2xl:px-4 2xl:py-3 font-semibold text-[10px] lg:text-xs 2xl:text-xl bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-b hover:from-[#3b200d] hover:via-[#e2660e] hover:to-[#3b200d] text-white rounded-sm border border-white">
                 <Link to="/Booking"> Book Your Stay</Link></button>
               </div>         
            </div>

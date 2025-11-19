@@ -106,7 +106,7 @@ export default function Awaits() {
         <div className="flex justify-center items-start gap-4 w-full overflow-hidden p-2">
           {getVisibleImages().map((img, i) => (
             <div key={i} className="flex flex-col justify-cente items-center w-full md:w-[35%] h-auto md:h-[500px] xl:h-[700px] 2xl:h-[900px] p-2 overflow-hidden shadow-lg gap-2 xl:gap-4 2xl:gap-6">
-              <img src={img.src} alt={`Slide ${i}`} className="w-full h-[200px] lg:h-px] xl:h-[400px] 2xl:h-[600px] overflow-y-hidden"/>
+              <img src={img.src} alt={`Slide ${i}`} className="w-full h-[300px] md:h-[200px] lg:h-px] xl:h-[400px] 2xl:h-[600px] overflow-y-hidden rounded-lg"/>
               <h1 className="text-lg font-bold text-center lg:text-lg xl:text-2xl 2xl:text-4xl">{img.title}</h1>
               <p className="text-sm text-center lg:text-lg xl:text-xl 2xl:text-2xl">{img.text}</p>
             </div>

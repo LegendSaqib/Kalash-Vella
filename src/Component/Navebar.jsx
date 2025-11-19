@@ -50,7 +50,7 @@ const Navigation = (props) => {
                         md:static md:bg-transparent md:flex md:flex-row gap-2 2xl:gap-15 md:items-center md:justify-center transition transform duration-200
                         ${open ? "flex" : "hidden"}`}
           >
-            <button className="md:hidden z-80 flex items-center gap-2 p-1 pr-2 xl:pr-6 font-semibold text-sm md:text-[10px] lg:text-xs 2xl:text-lg text-[#956928] rounded-full border border-[#B8822C] hover:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:text-white">
+            <button className="md:hidden z-80 flex items-center gap-2 p-1 pr-2 xl:pr-6 font-semibold text-sm md:text-[10px] lg:text-xs 2xl:text-lg text-[#956928] rounded-full border border-[#B8822C] hover:bg-gradient-to-b hover:from-[#4D2A11] hover:via-[#B36228] hover:to-[#4D2A11] hover:text-white">
               <Booking className="h-[28px] lg:h-[40px] xl:h-[40px] 2xl:h-[60px] bg-[#D49736] rounded-full" />
               <Link to="/Booking" onClick={() => setOpen(false)}>
                 Book Your Stay
@@ -59,7 +59,7 @@ const Navigation = (props) => {
 
             <li>
               <Link
-                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-2xl p-2"
+                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-xl p-2"
                 to="/"
                 onClick={() => setOpen(false)}>
                 Home
@@ -67,7 +67,7 @@ const Navigation = (props) => {
             </li>
             <li>
               <Link
-                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-2xl p-2"
+                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-xl p-2"
                 to="/About"
                 onClick={() => setOpen(false)}
               >
@@ -76,7 +76,7 @@ const Navigation = (props) => {
             </li>
             <li>
               <Link
-                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-2xl p-2"
+                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-xl p-2"
                 to="/Gallery"
                 onClick={() => setOpen(false)}
               >
@@ -85,7 +85,7 @@ const Navigation = (props) => {
             </li>
             <li>
               <Link
-                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-2xl p-2"
+                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-xl p-2"
                 to="/MeetYourGuide"
                 onClick={() => setOpen(false)}
               >
@@ -94,7 +94,7 @@ const Navigation = (props) => {
             </li>
             <li>
               <Link
-                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-2xl p-2"
+                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-xl p-2"
                 to="/RandPricing"
                 onClick={() => setOpen(false)}
               >
@@ -103,7 +103,7 @@ const Navigation = (props) => {
             </li>
             <li>
               <Link
-                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-2xl p-2"
+                className="md:bg-gradient-to-b from-[#4D2A11] via-[#B36228] to-[#4D2A11] hover:bg-gradient-to-t hover:from-[#412410] hover:via-[#8a4c1f] hover:to-[#412410] rounded-lg border border-transparent hover:border-white md:border-white hover:text-white text-black md:text-white md:text-[10px] lg:text-sm xl:text-lg 2xl:text-xl p-2"
                 to="/ContectUs"
                 onClick={() => setOpen(false)}
               >
@@ -114,7 +114,7 @@ const Navigation = (props) => {
         </div>
 
         <div className="flex justify-end md:w-[15%]">
-          <button className="hidden z-100 md:flex bg-gradient-to-b from-[#4D2A11]/50 via-[#B36228]/50 to-[#4D2A11]/50 md:items-center gap-2 p-1 pr-2 xl:pr-6 font-semibold text-[8px] lg:text-xs 2xl:text-lg  text-[#FFDAC0] rounded-full border border-[#FFFFFF] ">
+          <button className="hidden z-100 md:flex bg-gradient-to-b from-[#4D2A11]/50 via-[#B36228]/50 to-[#4D2A11]/50 hover:bg-gradient-to-b hover:from-[#4D2A11] hover:via-[#B36228] hover:to-[#4D2A11] md:items-center gap-2 p-1 pr-2 xl:pr-6 font-semibold text-[8px] lg:text-xs 2xl:text-lg  text-[#FFDAC0] hover:text-[#eee8e4] rounded-full border border-[#FFFFFF] ">
             <Booking className="md:h-[25px] lg:h-[40px] xl:h-[40px] 2xl:h-[60px] bg-[#D49736]/30 rounded-full" />
             <Link to="Booking">Book Your Stay</Link>
           </button>
