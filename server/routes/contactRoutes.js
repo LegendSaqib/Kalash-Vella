@@ -21,7 +21,7 @@ console.log("request bodt", req.body)
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: "backendapitester@gmail.com",
-    replayTo: email,
+    replyTo: email,
     subject: `New Contact Message from ${firstName} ${lastName}`,
     text: `
       Name: ${firstName} ${lastName}
