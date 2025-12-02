@@ -1,36 +1,29 @@
 import React, { useState } from "react";
 import { Required } from "../../assets/icons/icons";
-import { Link } from "react-router-dom";
-export default function Step1() {
-  const [step, setStep] = useState(1); // Added step state
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    checkIn: "",
-    checkOut: "",
-    rooms: "",
-    adults: "",
-    guideRequired: "No",
-    days: "",
-  });
-
+export default function Step1({ step, setStep, formData, setFormData, }) {
   const [showErrors, setShowErrors] = useState(false);
+  console.log("Step1", formData)
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const {name, value} = e.target;
+  const updatedFormData = { ...formData, [name]: value};
 
-  // --- Dynamic Price Calculation ---
   const roomPricePerDay = 2000;
   const totalRoomPrice =
-    (formData.rooms && formData.days
-      ? formData.rooms * formData.days * roomPricePerDay
+    (updatedFormData.rooms && updatedFormData.days
+      ? updatedFormData.rooms * updatedFormData.days * roomPricePerDay
       : 0);
-  const guidePrice = formData.guideRequired === "Yes" ? 3500 : 0;
-  const total = totalRoomPrice + guidePrice;
 
-  // --- Validation Fields ---
+  const guidePrice = updatedFormData.guideRequired === "Yes" ? 3500 : 0;
+  const total = totalRoomPrice + guidePrice; 
+
+  // setFormData({ ...updatedFormData, [e.target.name]: e.target.value, totalRoomPrice: totalRoomPrice,
+  // guidePrice: guidePrice,
+  // total: total, });
+  // };
+  setFormData({ ...updatedFormData, totalRoomPrice, guidePrice, total, });
+  };
+
   const requiredFields = [
     "fullName",
     "email",
@@ -52,6 +45,18 @@ export default function Step1() {
       // You can handle submission in Step 2
     }
   };
+
+  // --- Dynamic Price Calculation ---
+  // const roomPricePerDay = 2000;
+  // const totalRoomPrice =
+  //   (formData.rooms && formData.days
+  //     ? formData.rooms * formData.days * roomPricePerDay
+  //     : 0);
+  // const guidePrice = formData.guideRequired === "Yes" ? 3500 : 0;
+  // const total = totalRoomPrice + guidePrice;
+
+  // --- Validation Fields ---
+
 
   const renderError = (field) => {
     if (showErrors && !formData[field]) {
@@ -109,6 +114,7 @@ export default function Step1() {
               <input
                 name={field}
                 onChange={handleChange}
+                value={formData[field]}
                 className="w-full border border-gray-300 md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl rounded-md px-2 py-1 focus:outline-[#B36228]"
                 placeholder={
                   field === "fullName"
@@ -133,6 +139,7 @@ export default function Step1() {
               <input
                 type="date"
                 name={field}
+                value={formData[field]}
                 onChange={handleChange}
                 className="w-full text-gray-400 md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl border border-gray-300 rounded-md px-2 py-1 focus:outline-[#B36228]"/>
               {renderError(field)}
@@ -143,6 +150,7 @@ export default function Step1() {
             <select
               name="rooms"
               onChange={handleChange}
+              value={formData.rooms || ""} // ✅ bind value
               className="w-full text-gray-400 md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl border border-gray-300 rounded-md px-2 py-1 focus:outline-[#B36228]"
             >
               <option value="">Select</option>
@@ -158,6 +166,7 @@ export default function Step1() {
             <select
               name="adults"
               onChange={handleChange}
+              value={formData.adults || ""} // ✅ bind value
               className="w-full text-gray-400 md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl border border-gray-300 rounded-md px-2 py-1 focus:outline-[#B36228]"
             >
               <option value="">Select</option>
@@ -175,7 +184,7 @@ export default function Step1() {
           <div>
             <h1 className="font-bold md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl">Price of Days & Rooms</h1>
             <h1 className="text-[#915824] md:text-xs lg:text-sm xl:text-lg 2xl:text-xl ">
-              Price Rs: {totalRoomPrice || 0}
+              Price Rs: {formData.totalRoomPrice || 0}
             </h1>
           </div>
 
@@ -211,6 +220,7 @@ export default function Step1() {
             <select
               name="days"
               onChange={handleChange}
+              value={formData.days || ""} // ✅ bind value
               className="w-[30%] border border-gray-300 md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl rounded-md p-1 focus:outline-none"
             >
               <option value="">Select</option>
@@ -225,7 +235,7 @@ export default function Step1() {
           <div>
             <h1 className="font-bold md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl">Tour Guide Service</h1>
             <h1 className="text-[#915824] md:text-xs lg:text-sm xl:text-lg 2xl:text-xl">
-              Price Rs: {guidePrice ? "3,500" : "0"}
+              Price Rs: {formData.guidePrice ? "3,500" : "0"}
             </h1>
           </div>
         </div>
@@ -241,7 +251,7 @@ export default function Step1() {
               </tr>
             </thead>
             <tbody>
-              {totalRoomPrice > 0 && (
+              {formData.totalRoomPrice > 0 && (
                 <tr className=" md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl">
                   <td className="p-3 border border-gray-400">
                     Price of Rooms & Days
@@ -250,11 +260,11 @@ export default function Step1() {
                     {formData.rooms || 1}
                   </td>
                   <td className="p-3 border border-gray-400">
-                    {totalRoomPrice.toLocaleString()}
+                    {formData.totalRoomPrice.toLocaleString()}
                   </td>
                 </tr>
               )}
-              {guidePrice > 0 && (
+              {formData.guidePrice > 0 && (
                 <tr className=" md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl">
                   <td className="p-3 border border-gray-400">
                     Tour Guide Service
@@ -267,7 +277,7 @@ export default function Step1() {
                 <td className="p-3 border border-gray-400">Total</td>
                 <td className="p-3 border border-gray-400"></td>
                 <td className="p-3 border border-gray-400">
-                  {total.toLocaleString()}
+                  {formData.total}
                 </td>
               </tr>
             </tbody>
@@ -277,6 +287,7 @@ export default function Step1() {
         {/* --- Next Button --- */}
         <div className="flex md:mt-5">
           <button
+          onClick={handleNext}
             className="bg-[#4D2A11] hover:bg-[#B36228] text-white md:text-xs lg:text-sm xl:text-lg 2xl:text-xl px-8 xl:px-12 xl:py-2 py-1 rounded-full">
                 Next
           </button>

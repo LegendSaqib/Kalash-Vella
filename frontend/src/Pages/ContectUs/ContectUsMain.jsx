@@ -24,7 +24,7 @@ const handleSubmit = async (e) => {
   // console.log(formData)
   if (Object.keys(newErrors).length === 0) {
     try {
-      await axios.post("http://localhost:5000/api/contact", formData, {
+      await axios.post(`${import.meta.env.VITE_APP_API_DOMAIN}/contact`, formData, {
         
   headers: { "Content-Type": "application/json" },
 });
