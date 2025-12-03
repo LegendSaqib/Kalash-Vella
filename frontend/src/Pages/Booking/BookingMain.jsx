@@ -1,6 +1,22 @@
+import React, {useState} from "react";
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 const BookingMain = () => {
+  const [step, setStep] = useState(1);
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    checkIn: "",
+    checkOut: "",
+    rooms: "",
+    adults: "",
+    guideRequired: "No",
+    days: "",
+  });
+  console.log(formData)
+
     return (
         <>
         <div className="relative bg-[url('/BookingBg.jpg')] bg-cover h-[300px] md:h-[400px] lg:h-[600px] xl:h-[700px] 2xl:h-[1000px] bg-center bg-no-repeat w-full">
@@ -12,8 +28,27 @@ const BookingMain = () => {
               </div>         
            </div>
         </div>
-        <Step1/>
-        <Step2/>
+        {/* <Step1/>
+        <Step2/> */}
+         {/* ----- MULTI STEP FORM ----- */}
+      {step === 1 && (
+        <Step1
+          step={step}
+          setStep={setStep}
+          formData={formData}
+          setFormData={setFormData}
+          
+          />
+        )}
+
+      {step === 2 && (
+        <Step2
+        step={step}
+        setStep={setStep}
+        formData={formData}
+        setFormData={setFormData}
+        />
+      )}
         </>
     )
 }

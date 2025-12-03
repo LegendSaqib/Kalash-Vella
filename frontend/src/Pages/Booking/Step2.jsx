@@ -1,6 +1,46 @@
 import React from "react";
+import axios from "axios";
 import { Required } from "../../assets/icons/icons";
-export default function Step2() {
+export default function Step2({ setStep, formData, setFormData }) {
+  const handleBack = () =>
+  {
+    setStep(1);
+  }
+  // frontend example
+const handleSubmit = async () => {
+  const formDataToSend = new FormData();
+
+  // Step1 + Step2 data
+  formDataToSend.append("fullName", formData.fullName);
+  formDataToSend.append("email", formData.email);
+  formDataToSend.append("phone", formData.phone);
+  formDataToSend.append("checkIn", formData.checkIn);
+  formDataToSend.append("checkOut", formData.checkOut);
+  formDataToSend.append("rooms", formData.rooms);
+  formDataToSend.append("adults", formData.adults);
+  formDataToSend.append("days", formData.days);
+  formDataToSend.append("guideRequired", formData.guideRequired);
+  formDataToSend.append("total", formData.total);
+
+  // Image from Step2
+  if (formData.image) {
+    formDataToSend.append("image", formData.image);
+  }
+  console.log("envi",import.meta.env.VITE_APP_API_DOMAIN)
+  try {
+  const response = await fetch(`${import.meta.env.VITE_APP_API_DOMAIN}/booking`, {
+    method: "POST",
+    body: formDataToSend,
+  });
+
+  const result = await response.json();
+  alert("Booking submitted successfully!");
+  console.log(result);
+} catch(err)
+{
+  console.error(err);
+}
+};
   return (
     <>
             <div className="relative bg-[url('/BookingBg.jpg')] bg-cover h-[300px] md:h-[400px] lg:h-[600px] xl:h-[700px] 2xl:h-[1000px] bg-center bg-no-repeat w-full">
@@ -19,7 +59,7 @@ export default function Step2() {
         </h2>
       </div>
         <div className="w-full h-[4px] rounded-full bg-amber-700">
-          <div className="w-[50%] bg-gray-300 rounded-full h-[4px] "></div>
+          <div className="w-[0%] bg-gray-300 rounded-full h-[4px] "></div>
         </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:px-5 ">
         {/* Left Section */}
@@ -31,26 +71,29 @@ export default function Step2() {
              </div>
             </div>
           </div>
-          <div className="space-y-2 text-gray-800">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Full Name: </strong> Jalil ahmed</p>
-           <div className="flex gap-5">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Email:</strong> Jalilahmed65@gmail.com</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Phone:</strong> 0321-9876554</p>
+          <div className="space-y-2  text-gray-800 rounded-2xl pt-4" style={{ boxShadow: '4px 4px 15px rgba(0,0,0,0.4)' }}>
+            <p className="flex  flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Full Name: </strong> {formData.fullName}</p>
+           <div className="flex gap-5 justify-around">
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Email:</strong> {formData.email}</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Phone:</strong> {formData.phone}</p>
            </div>
-           <div className="flex gap-5">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Check-in Date:</strong> November 25, 2025</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Check-out Date:</strong> November 30, 2025</p>
+           <div className="flex gap-5 justify-around">
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Check-in Date:</strong> {formData.checkIn}</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Check-out Date:</strong> {formData.checkOut}</p>
            </div>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Num of Rooms:</strong> 1 Day</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Price of Days & Rooms:</strong> Price Rs: 12,000</p>
+           <div className="flex gap-5    justify-between ">
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Num of Rooms:</strong> {formData.rooms}</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Adults</strong> {formData.adults}</p>
+           </div>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Price of Days & Rooms:</strong>{formData.totalRoomPrice.toLocaleString()}</p>
            <div className="flex gap-5 border-t border-gray-400 mt-5 pt-5">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Your Guide Required:</strong> Yes</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Number of days:</strong> 1 day</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Your Guide Required:</strong> {formData.guideRequired}</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Number of days:</strong> {formData.days}</p>
            </div>
            <div className="flex gap-5 border-b border-gray-400 mb-5 pb-5">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Tour Guide Service:</strong>Price Rs: 3,500</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Tour Guide Service:</strong>{formData.guidePrice.toLocaleString()}</p>
            </div>
-            <p className="font-bold flex flex-col gap-2 text-sm lg:text-lg xl:text-xl 2xl:text-2xl">Total Amount: <span className="text-[#67491C] text-xs lg:text-sm xl:text-lg 2xl:text-xl ">Rs. 16,500</span></p>
+            <p className="font-bold flex flex-col gap-2 text-sm lg:text-lg xl:text-xl 2xl:text-2xl">Total Amount: <span className="text-[#67491C] text-xs lg:text-sm xl:text-lg 2xl:text-xl ">{formData.total.toLocaleString()}</span></p>
           </div>
         </div>
 
@@ -81,6 +124,8 @@ export default function Step2() {
               </label>
               <input
                 type="file"
+                accept="image/*"
+                onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
                 className="w-full border border-gray-400 rounded p-2 text-sm lg:text-lg xl:text-xl 2xl:text-2xl"
               />
               <p className="text-red-500 text-sm lg:text-lg xl:text-xl 2xl:text-2xl mt-1 flex gap-2 items-center">
@@ -89,10 +134,14 @@ export default function Step2() {
 
             {/* Buttons */}
             <div className="flex items-center justify-around gap-3 mt-5 w-full">
-              <button className="w-full bg-[#67491C] text-white px-5 py-2 rounded-full hover:bg-[#4D2A11] transition">
+              <button 
+              onClick={handleBack}
+              className="w-full bg-[#67491C] text-white px-5 py-2 rounded-full hover:bg-[#4D2A11] transition">
                 Back
               </button>
-              <button className="w-full bg-[#67491C] text-white px-5 py-2 rounded-full hover:bg-[#4D2A11] transition">
+              <button
+              onClick={handleSubmit}
+              className="w-full bg-[#67491C] text-white px-5 py-2 rounded-full hover:bg-[#4D2A11] transition">
                 Submit
               </button>
             </div>

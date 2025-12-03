@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Required } from "../../assets/icons/icons";
 import React, { useState } from "react";
 const ContectUsMain = () => {
@@ -12,17 +13,35 @@ const ContectUsMain = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
-    if (!formData.firstName) newErrors.firstName = "This field is required.";
-    if (!formData.lastName) newErrors.lastName = "This field is required.";
-    if (!formData.phone) newErrors.phone = "This field is required.";
-    setErrors(newErrors);
-    if (Object.keys(newErrors).length === 0) {
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const newErrors = {};
+  if (!formData.firstName) newErrors.firstName = "This field is required.";
+  if (!formData.lastName) newErrors.lastName = "This field is required.";
+  if (!formData.phone) newErrors.phone = "This field is required.";
+  setErrors(newErrors);
+  // console.log(formData)
+  if (Object.keys(newErrors).length === 0) {
+    try {
+      await axios.post(`${import.meta.env.VITE_APP_API_DOMAIN}/contact`, formData, {
+        
+  headers: { "Content-Type": "application/json" },
+});
       alert("Message sent successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      alert("Failed to send message. Please try again.");
+      console.log(error);
     }
-  };
+  }
+};
   return (
     <>
       {/* 🔹 Hero Section */}
