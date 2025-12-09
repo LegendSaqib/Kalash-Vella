@@ -52,7 +52,7 @@ const handleSubmit = async () => {
               </div>         
            </div>
         </div>
-    <div className="min-h-screen flex flex-col gap-5 items-center p-5 xl:px-10 2xl:px-20 bg-white">
+    <div className="min-h-screen flex flex-col gap-5 items-center p-2 xl:px-10 2xl:px-20 bg-white">
       <div className="w-full flex items-center justify-center">
         <h2 className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold mb-4">
           Step 2
@@ -63,7 +63,7 @@ const handleSubmit = async () => {
         </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:px-5 ">
         {/* Left Section */}
-      <div className="flex flex-col gap-2 md:pr-6">
+      <div className="flex flex-col gap-2">
           <div className="w-full flex items-center justify-center">
             <div className="w-[180px] md:w-[220px] lg:w-[270px] 2xl:w-[320px]">
              <div className="relative border-2 border-transparent border-t-[#B36228] border-b-[#B36228] border-l-[#B36228] rounded-sm h-[35px] w-[50%] md:h-[40px] lg:h-[45px] 2xl:h-[53px] flex items-center">
@@ -71,19 +71,19 @@ const handleSubmit = async () => {
              </div>
             </div>
           </div>
-          <div className="space-y-2  text-gray-800 rounded-2xl pt-4" style={{ boxShadow: '4px 4px 15px rgba(0,0,0,0.4)' }}>
-            <p className="flex  flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Full Name: </strong> {formData.fullName}</p>
-           <div className="flex gap-5 justify-around">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Email:</strong> {formData.email}</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Phone:</strong> {formData.phone}</p>
+          <div className="space-y-2 text-gray-800 rounded-2xl pt-4 p-2">
+            <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Full Name: </strong> {formData.fullName}</p>
+           <div className="flex justify-between">
+            <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black w-[118px]">Email:</strong> {formData.email}</p>
+            <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-end"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black w-[115px] text-end">Phone:</strong> {formData.phone}</p>
            </div>
-           <div className="flex gap-5 justify-around">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Check-in Date:</strong> {formData.checkIn}</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Check-out Date:</strong> {formData.checkOut}</p>
+           <div className="flex justify-between">
+            <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black w-[120px]">Check-in Date:</strong> {formData.checkIn}</p>
+            <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-end"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl w-[120px] text-black">Check-out Date:</strong> {formData.checkOut}</p>
            </div>
-           <div className="flex gap-5    justify-between ">
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Num of Rooms:</strong> {formData.rooms}</p>
-            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Adults</strong> {formData.adults}</p>
+           <div className="flex justify-between">
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black w-[120px]">Num of Rooms:</strong> {formData.rooms}</p>
+            <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-end"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black w-[120px]">Adults</strong> {formData.adults}</p>
            </div>
             <p className="flex flex-col gap-2 text-[#67491C]text-sm lg:text-lg xl:text-xl 2xl:text-2xl"><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Price of Days & Rooms:</strong>{formData.totalRoomPrice.toLocaleString()}</p>
            <div className="flex gap-5 border-t border-gray-400 mt-5 pt-5">
@@ -106,7 +106,7 @@ const handleSubmit = async () => {
              </div>
             </div>
           </div>
-          <div className="space-y-2 text-gray-800 text-xs lg:text-sm xl:text-lg 2xl:text-xl">
+          <div className="space-y-2 text-gray-800 text-xs lg:text-sm xl:text-lg 2xl:text-xl pt-4">
             <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl "><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Account Title:</strong> SHOAIB AKHTAR</p>
             <p className="flex flex-col gap-2 text-[#67491C] text-sm lg:text-lg xl:text-xl 2xl:text-2xl "><strong className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-black">Bank Name:</strong> FAYSAL BANK Limited</p>
            <div className="flex gap-5">

@@ -11,6 +11,11 @@ const MYG = () => {
               </div>         
            </div>
         </div>
+           <div>
+            <h2 className="p-5 text-[#4D2A11] text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-center font-bold">
+            A Son of the Mountains
+            </h2>
+           </div>
         <SOM/>
         </>
     )

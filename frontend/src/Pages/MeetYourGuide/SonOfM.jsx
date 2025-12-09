@@ -16,11 +16,8 @@ export default function GuideSection() {
       </div>
       {/* Right Text */}
       <div className="w-full md:w-[50%] flex flex-col gap-5">
-        <h2 className="text-[#4D2A11] text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-center font-bold">
-          A Son of the Mountains
-        </h2>
         <p className="text-gray-700 leading-relaxed md:mb-4 text-xs lg:text-xl xl:text-2xl 2xl:text-4xl text-center">
-          Shoaib Aftab grew up right here in Bumburet Valley — surrounded by the
+          Shoaib Akhtar grew up right here in Bumburet Valley — surrounded by the
           mountains, festivals, and stories that make the Kalash culture so
           alive. As the son of your hosts at Kalash Villa, he’s been welcoming
           guests since he was old enough to carry tea trays and tell stories

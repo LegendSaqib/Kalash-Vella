@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-# env
+# env KalashVilla,10
 .env
 
 # Editor directories and files
