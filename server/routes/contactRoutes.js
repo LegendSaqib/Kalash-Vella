@@ -20,7 +20,7 @@ console.log("request bodt", req.body)
   // console.log("this ", transporter.);
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: "backendapitester@gmail.com",
+    to: "pharan.kalash@gmail.com",
     replyTo: email,
     subject: `New Contact Message from ${firstName} ${lastName}`,
     text: `
@@ -37,6 +37,7 @@ console.log("request bodt", req.body)
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to send email." });
+    console.log(err);
   }
 });
 

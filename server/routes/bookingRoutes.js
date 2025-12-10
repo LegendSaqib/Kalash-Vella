@@ -26,7 +26,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: "backendapitester@gmail.com",
+    to: "pharan.kalash@gmail.com",
     replyTo: email,
     subject: `New Booking from ${fullName}`,
     text: `
